@@ -1,0 +1,42 @@
+scalar DateTime
+
+type Team {
+    id: String!
+    name: String!
+    users: [User]
+    total: Int!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+input CreateTeamInput {
+    name: String!
+    total: Int!
+}
+
+input UpdateTeamInput {
+    id: String!
+    total: Int!
+}
+
+input SearchTeamInput {
+    query: String
+    page: Int = 1
+    limit: Int = 10
+}
+
+type ResultSearchTeamInput {
+    teams: [Team]!
+    totalCount: Int!
+    totalPages: Int!
+}
+
+type Query {
+    teams(orderByInput: OrderByParams, searchTeamInput: SearchTeamInput): ResultSearchTeamInput!
+    team(id: String!, orderByInput: OrderByParams): Team
+}
+
+type Mutation {
+    createTeam(createTeamInput: CreateTeamInput!): Team!
+    updateTeam(updateTeamInput: UpdateTeamInput!): Team!
+}
