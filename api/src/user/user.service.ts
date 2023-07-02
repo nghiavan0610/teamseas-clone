@@ -57,17 +57,13 @@ export class UserService {
         });
     }
 
-    async getTotalJoin() {
+    async getTotalDonation() {
         const res = await this.prisma.user.aggregate({
-            _count: true,
             _sum: {
                 donate: true,
             },
         });
 
-        return {
-            totalUsers: res._count,
-            totalDonation: res._sum.donate,
-        };
+        return res._sum.donate;
     }
 }

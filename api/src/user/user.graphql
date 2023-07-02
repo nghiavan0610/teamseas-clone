@@ -32,7 +32,7 @@ input OrderByParams {
 type Query {
     users(orderByInput: OrderByParams): [User]!
     user(id: String!): User
-    totalJoin: Result
+    totalDonation: Int!
 }
 
 type Mutation {
@@ -40,7 +40,6 @@ type Mutation {
 }
 
 type Result {
-    totalUsers: Int!
     totalDonation: Int!
 }
 

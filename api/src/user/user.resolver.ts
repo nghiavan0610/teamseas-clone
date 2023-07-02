@@ -14,9 +14,9 @@ export class UserResolver {
     async donate(@Args('donateInput') donateInput: DonateInput) {
         const user = await this.userService.donate(donateInput);
 
-        const { totalUsers, totalDonation } = await this.userService.getTotalJoin();
+        const totalDonation = await this.userService.getTotalDonation();
 
-        pubSub.publish('totalUpdated', { totalUpdated: { totalUsers, totalDonation } });
+        pubSub.publish('totalUpdated', { totalUpdated: { totalDonation } });
 
         return user;
     }
@@ -36,8 +36,8 @@ export class UserResolver {
         return this.userService.findOne(id);
     }
 
-    @Query('totalJoin')
-    totalJoin() {
-        return this.userService.getTotalJoin();
+    @Query('totalDonation')
+    totalDonation() {
+        return this.userService.getTotalDonation();
     }
 }

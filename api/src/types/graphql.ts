@@ -64,7 +64,7 @@ export abstract class IQuery {
 
     abstract user(id: string): Nullable<User> | Promise<Nullable<User>>;
 
-    abstract totalJoin(): Nullable<Result> | Promise<Nullable<Result>>;
+    abstract totalDonation(): number | Promise<number>;
 }
 
 export abstract class IMutation {
@@ -89,7 +89,6 @@ export class User {
 }
 
 export class Result {
-    totalUsers: number;
     totalDonation: number;
 }
 
