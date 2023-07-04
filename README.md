@@ -18,7 +18,7 @@ git clone https://github.com/nghiavan0610/teamseas-clone.git
 
 Create an .env file that looks like .env.example file
 
-Then start database
+Start database
 
 ```
 cd teamseas-clone/api
