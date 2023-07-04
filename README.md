@@ -25,6 +25,13 @@ cd teamseas-clone/api
 docker-compose up -d
 ```
 
+Seed databas
+
+```
+yarn prisma migrate reset
+yarn prisma db seed
+```
+
 Then start server
 
 ```
