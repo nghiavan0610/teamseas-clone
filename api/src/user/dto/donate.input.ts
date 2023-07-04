@@ -12,7 +12,6 @@ export class DonateInput {
     donate: number;
 
     @IsOptional()
-    @IsNotEmpty()
     team?: string | null;
 
     @IsOptional()

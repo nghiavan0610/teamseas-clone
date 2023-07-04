@@ -51,7 +51,7 @@ const LeaderBoard: React.FC = () => {
                 </RadioGroup>
 
                 {data.users.map((user) => (
-                    <LeaderBoardItem user={user} />
+                    <LeaderBoardItem key={user.id} user={user} />
                 ))}
             </VStack>
         </Box>

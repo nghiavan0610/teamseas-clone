@@ -8,7 +8,6 @@ import {
     VStack,
     useRadioGroup,
 } from '@chakra-ui/react';
-
 import RadioCard from './RadioCard';
 import { useState } from 'react';
 
@@ -19,7 +18,7 @@ interface Props {
 
 const options = [5, 20, 50, 100];
 
-const CountSelection: React.FC<Props> = ({ next, initialDonate }) => {
+const CountSelection: React.FC<Props> = ({ initialDonate, next }) => {
     const [pounds, setPounds] = useState(initialDonate);
     const [cusAmount, setCusAmount] = useState('' + (options.includes(pounds) ? '' : pounds));
 
