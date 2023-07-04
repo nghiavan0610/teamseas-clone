@@ -8,7 +8,7 @@ type User {
     mobile: String
     message: String
     anonymous: Boolean
-    team: Team
+    team: String
     createdAt: DateTime
     updatedAt: DateTime
 }
@@ -17,8 +17,7 @@ input DonateInput {
     username: String!
     email: String!
     donate: Int!
-    teamId: String
-    teamName: String
+    team: String
     mobile: String
     message: String
     anonymous: Boolean

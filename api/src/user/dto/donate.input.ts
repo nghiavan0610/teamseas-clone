@@ -13,11 +13,7 @@ export class DonateInput {
 
     @IsOptional()
     @IsNotEmpty()
-    teamId?: string | null;
-
-    @IsOptional()
-    @IsNotEmpty()
-    teamName?: string | null;
+    team?: string | null;
 
     @IsOptional()
     mobile?: string | null;

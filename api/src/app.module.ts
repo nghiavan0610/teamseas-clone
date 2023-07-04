@@ -12,8 +12,6 @@ import {
 } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
 import { GraphQLDateTime } from 'graphql-iso-date';
-import { SlugModule } from './slug/slug.module';
-import { TeamModule } from './team/team.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -22,16 +20,9 @@ import { ConfigModule } from '@nestjs/config';
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
             playground: false,
-            // cors: {
-            //     credentials: true,
-            //     origin: true,
-            // },
             plugins: [
                 process.env.NODE_ENV === 'production'
-                    ? ApolloServerPluginLandingPageProductionDefault({
-                          //   embed: true,
-                          //   graphRef: 'plaid-gufzoj@current',
-                      })
+                    ? ApolloServerPluginLandingPageProductionDefault({})
                     : ApolloServerPluginLandingPageLocalDefault({ embed: true }),
             ],
             typePaths: ['./**/*.graphql'],
@@ -47,8 +38,6 @@ import { ConfigModule } from '@nestjs/config';
         }),
         PrismaModule,
         UserModule,
-        SlugModule,
-        TeamModule,
     ],
     controllers: [AppController],
     providers: [AppService, PrismaService],
